@@ -12,13 +12,13 @@ angular.module('chevalierApp.view2', ['ngRoute', 'chevalierApp.providers'])
 .controller('View2Ctrl', ['$scope', 'dataFactory', function($scope, dataFactory) {
       dataFactory.university.all({count: 6})
           .$promise.then(function(result){
-              //Используем meta.length так как content - пока просто объект, не массив.
-              //Приветствуются идеи сделать лучше.
+              //РСЃРїРѕР»СЊР·СѓРµРј meta.length С‚Р°Рє РєР°Рє content - РїРѕРєР° РїСЂРѕСЃС‚Рѕ РѕР±СЉРµРєС‚, РЅРµ РјР°СЃСЃРёРІ.
+              //РџСЂРёРІРµС‚СЃС‚РІСѓСЋС‚СЃСЏ РёРґРµРё СЃРґРµР»Р°С‚СЊ Р»СѓС‡С€Рµ.
               for (var i = 0; i < result.meta.length; i++)
               {
-                  //Опять же, сервак возвращает относительные ссылки.
-                  //Юзаем фабричный метод remadeMedia, который переделывает относительные ссылки в абсолютные.
-                  //Иначе картинки не заведутся.
+                  //РћРїСЏС‚СЊ Р¶Рµ, СЃРµСЂРІР°Рє РІРѕР·РІСЂР°С‰Р°РµС‚ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Рµ СЃСЃС‹Р»РєРё.
+                  //Р®Р·Р°РµРј С„Р°Р±СЂРёС‡РЅС‹Р№ РјРµС‚РѕРґ remadeMedia, РєРѕС‚РѕСЂС‹Р№ РїРµСЂРµРґРµР»С‹РІР°РµС‚ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Рµ СЃСЃС‹Р»РєРё РІ Р°Р±СЃРѕР»СЋС‚РЅС‹Рµ.
+                  //РРЅР°С‡Рµ РєР°СЂС‚РёРЅРєРё РЅРµ Р·Р°РІРµРґСѓС‚СЃСЏ.
                   result.content[i].image = dataFactory.remadeMedia(result.content[i].image)
               }
               $scope.universities = result.content;
