@@ -19,5 +19,5 @@ angular.module('chevalierApp.view1', ['ngRoute', 'chevalierApp.providers'])
             //По идее этот кусок кода (всё внутри контроллера) должен уйти в index. TODO: подумать.
             //alert(result.type);
             $scope.teachers = result.content;
-        })
+        });
   }]);

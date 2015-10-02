@@ -10,12 +10,19 @@
 angular.module('chevalierApp.providers', ['ngResource'])
     //По сути фабрика, содержащая resource-объекты, к которым можно обращаться через ключи.
     .factory('dataFactory', function($resource) {
+        var api = 'http://95.213.194.21:8080';
         return {
+            api: api,
+            //Прямой адрес к медиа.
+            remadeMedia: function (media) {return api + "/media/" + media},
             teachers: $resource('./data/teacher.json', {}, { //в будущем будет ссылаться на Beast
                 query: {method: 'GET', params: {}, isArray: false}
             }),
             files: $resource('./data/file.json', {}, { //аналогично, будет ссылатсья на Beast
                 query: {method: 'GET', params: {}, isArray: false}
+            }),
+            university: $resource(api + '/university/', {}, {
+                all: {url: api + '/university/all/:count', method: 'GET', params: {}, isArray: false}
             })
         }
     })
