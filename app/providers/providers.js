@@ -1,7 +1,7 @@
 /**
  * Created by DeBalid on 06.06.2015.
  */
-'use strict'; //TODO: �����������, ����� ��� ������.
+'use strict'; //TODO:
 
 
 //Чтобы была хоть какая-то архитектура, провайдеры ресурсов выделяем в отдельные сервисы.
@@ -24,9 +24,7 @@ angular.module('chevalierApp.providers', ['ngResource'])
             }),*/
             university: $resource(api + '/university/', {}, {
                 all: {url: api + '/university/all/:count', method: 'GET', params: {}, isArray: false}
-            })/*,
-            courses: $resource(api+'/course/top/?univeristy_id=0&page_number=0&page_size=5', {}, {
-                all: {url: api +}
-            })*/
+            })
+
         }
     })

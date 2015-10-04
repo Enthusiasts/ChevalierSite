@@ -5,6 +5,7 @@ angular.module('chevalierApp', [
   'ngRoute',
   'chevalierApp.main',
   'chevalierApp.about',
+  'chevalierApp.courses',
   'chevalierApp.version',
   'chevalierApp.contacts',
   'chevalierApp.providers'

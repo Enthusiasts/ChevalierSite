@@ -3,7 +3,7 @@
     <p>
     <div class = "row">
         <div ng-repeat = "uni in universities" class="col-md-2">
-            <a href="#" role="button">
+            <a href="#/courses/{{uni.id}}" role="button">
                 <img ng-src="{{uni.image}}" alt="5" class="img-circle">
             </a>
             <h5>{{uni.name}}</h5>
