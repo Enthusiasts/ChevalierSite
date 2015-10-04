@@ -3,11 +3,12 @@
 // Declare app level module which depends on views, and components
 angular.module('chevalierApp', [
   'ngRoute',
-  'chevalierApp.view1',
-  'chevalierApp.view2',
+  'chevalierApp.main',
+  'chevalierApp.about',
   'chevalierApp.version',
+  'chevalierApp.contacts',
   'chevalierApp.providers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view2'});
+  $routeProvider.otherwise({redirectTo: '/main'});
 }]);
