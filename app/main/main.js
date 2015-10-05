@@ -10,7 +10,7 @@ angular.module('chevalierApp.main', ['ngRoute', 'chevalierApp.providers'])
     }])
 
     .controller('MainCtrl', ['$scope', 'dataFactory', function($scope, dataFactory) {
-        dataFactory.university.all({count: 6})
+        dataFactory.university.top({page_number: 0, page_size: 6})
             .$promise.then(function(result){
                 //Используем meta.length так как content - пока просто объект, не массив.
                 //Приветствуются идеи сделать лучше.

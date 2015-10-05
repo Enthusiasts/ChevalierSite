@@ -11,7 +11,8 @@
 angular.module('chevalierApp.providers', ['ngResource'])
     //По сути фабрика, содержащая resource-объекты, к которым можно обращаться через ключи.
     .factory('dataFactory', function($resource) {
-        var api = 'http://95.213.194.21:8080';
+       // var api = 'http://95.213.194.21:8080';
+        var api = "http://127.0.0.1:8080";
         return {
             api: api,
             //Прямой адрес к медиа.
@@ -23,8 +24,14 @@ angular.module('chevalierApp.providers', ['ngResource'])
                 query: {method: 'GET', params: {}, isArray: false}
             }),*/
             university: $resource(api + '/university/', {}, {
-                all: {url: api + '/university/all/:count', method: 'GET', params: {}, isArray: false}
+                //all: {url: api + '/university/all/:count', method: 'GET', params: {}, isArray: false}
+                one: {url: api + '/university/:id', method: 'GET', params: {}, isArray:false},
+                top: {url: api + '/university/top/', method: 'GET', params: {}, isArray: false},
+                prefix: {url: api + '/university/prefix/:instance', method: 'GET', params: {}, isArray: false}
             })
 
         }
     })
+    /*.config(['$resourceProvider', function($resourceProvider) {
+        $resourceProvider.defaults.stripTrailingSlashes = false;
+    }])*/;
