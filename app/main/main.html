@@ -1,15 +1,14 @@
-<div class="jumbotron">
+<div class="jumbotron" ng-controller="MainCtrl">
     <h2>Выбери свой университет</h2>
     <p>
     <div class = "row">
-        <div ng-repeat = "uni in universities" class="col-md-2">
-            <a href="#/courses/{{uni.id}}" role="button">
+        <div ng-repeat = "uni in universities" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <a href="#/test" role="button" ng-click="idHandler($index)">
                 <img ng-src="{{uni.image}}" alt="5" class="img-circle">
             </a>
             <h5>{{uni.name}}</h5>
         </div>
     </div>
-
     </p>
     <p class="lead">Или воспользуйся формой поиска.</p>
     <input type="text" class="form-control" placeholder="Название университета">

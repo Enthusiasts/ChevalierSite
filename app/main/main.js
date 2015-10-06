@@ -9,7 +9,7 @@ angular.module('chevalierApp.main', ['ngRoute', 'chevalierApp.providers'])
         });
     }])
 
-    .controller('MainCtrl', ['$scope', 'dataFactory', function($scope, dataFactory) {
+    .controller('MainCtrl', ['$scope', 'dataFactory', 'idService', function($scope, dataFactory, idService) {
         dataFactory.university.top({page_number: 0, page_size: 6})
             .$promise.then(function(result){
                 //Используем meta.length так как content - пока просто объект, не массив.
@@ -22,8 +22,27 @@ angular.module('chevalierApp.main', ['ngRoute', 'chevalierApp.providers'])
                     result.content[i].image = dataFactory.remadeMedia(result.content[i].image)
                 }
                 $scope.universities = result.content;
+
             });
-    }]);
+        $scope.idHandler = function(id){
+             var idChosen = $scope.universities[id].id;
+            idService.saveChosenUniId(idChosen)
+        };
+
+    }])
+
+    .factory('idService', function(){
+       var idChosen;
+        return {
+            saveChosenUniId:function (id){
+                idChosen = id;
+                console.log(idChosen)
+            },
+            getChosenUniId:function (){
+                return idChosen
+            }
+        };
+    });
 /**
  * Created by vlad on 04.10.15.
  */

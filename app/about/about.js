@@ -9,7 +9,7 @@ angular.module('chevalierApp.about', ['ngRoute', 'chevalierApp.providers'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/about', {
             templateUrl: 'about/about.html',
-            controller: 'AboutsCtrl'
+            controller: 'AboutCtrl'
         });
     }])
-    .controller('AboutsCtrl')
+    .controller('AboutCtrl')
